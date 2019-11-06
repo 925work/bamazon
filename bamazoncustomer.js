@@ -20,7 +20,7 @@ function start() {
       inquirer
         .prompt([
           {
-            name: "id-selection",
+            name: "id_selection",
             type: "rawlist",
             choices: function() {
               var idArray = [];
@@ -43,21 +43,22 @@ function start() {
           for (var i = 0; i < results.length; i++) {
             if (results[i].product_name === answer.id_selection) {
               chosenItem = results[i];
-              console.log(chosenItem);
+              console.log(chosenItem.stock);
+              console.log(answer.quantity)
             }
           }
   
           // determine if bid was high enough
-          if (chosenItem.highest_bid < parseInt(answer.bid)) {
+          if (chosenItem.stock >= parseInt(answer.quantity)) {
             // bid was high enough, so update db, let the user know, and start over
             connection.query(
-              "UPDATE auctions SET ? WHERE ?",
+              "UPDATE products SET ? WHERE ?",
               [
                 {
-                  highest_bid: answer.bid
+                  stock: chosenItem.stock - answer.quantity
                 },
                 {
-                  id: chosenItem.id
+                  product_id: chosenItem.product_id
                 }
               ],
               function(error) {
