@@ -38,7 +38,6 @@ function start() {
           }
         ])
         .then(function(answer) {
-          // get the information of the chosen item
           var chosenItem;
           for (var i = 0; i < results.length; i++) {
             if (results[i].product_name === answer.id_selection) {
@@ -48,9 +47,7 @@ function start() {
             }
           }
   
-          // determine if bid was high enough
           if (chosenItem.stock >= parseInt(answer.quantity)) {
-            // bid was high enough, so update db, let the user know, and start over
             connection.query(
               "UPDATE products SET ? WHERE ?",
               [
@@ -63,14 +60,14 @@ function start() {
               ],
               function(error) {
                 if (error) throw err;
-                console.log("Bid placed successfully!");
-                start();
+                console.log("Congratulations! The product is in stock. Placing your order now...");
+                console.log("The cost of your order is $" + answer.quantity * chosenItem.price);
+                connection.end();
               }
             );
           }
           else {
-            // bid wasn't high enough, so apologize and start over
-            console.log("Your bid was too low. Try again...");
+            console.log("There was not enough stock to fulfill your order. Please try again.");
             start();
           }
         });
