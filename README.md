@@ -15,7 +15,7 @@
 
     This is what it should look like.
 
-    SCREENSHOT
+    ![Table1](https://i.ibb.co/KyCt8Xd/initial-table.png)
 
 
 1. ## Go back into the terminal for bamazoncustomer.js and run the following command to place an order...
@@ -24,17 +24,16 @@
 
     Using your ARROW keys and the ENTER keys, select what product you want to purchase.
 
-    Then enter in the number of products you would like to purchase.
+    Then enter in the number of products you would like to purchase. The table will update accordingly.
+
+    For example, if I bought 10 coffee mugs, the new stock count will be 20. The app will also give you the price of your order.
 
 # Screenshots of results below:
-Movie-this:
+Terminal Responses
 
-![Movie](https://i.ibb.co/vLVdMTh/movie.png)
+![Terminal](https://i.ibb.co/x3psygN/Screen-Shot-2019-11-11-at-10-13-14-AM.png)
 
-Concert-this:
+Updated Table
 
-![Concert](https://i.ibb.co/kD3Lr4z/concert.png)
+![Table2](https://i.ibb.co/zPdvr1D/Screen-Shot-2019-11-11-at-10-40-24-AM.png)
 
-Spotfiy-this-song:
-
-![Spotfy](https://i.ibb.co/cCqXd5d/song.png)

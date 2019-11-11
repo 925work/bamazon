@@ -42,8 +42,6 @@ function start() {
           for (var i = 0; i < results.length; i++) {
             if (results[i].product_name === answer.id_selection) {
               chosenItem = results[i];
-              console.log(chosenItem.stock);
-              console.log(answer.quantity)
             }
           }
   
